@@ -9,7 +9,7 @@ resource "aws_instance" "prometheus" {
   security_groups                    = ["launch-wizard-1"]
   key_name                           = var.keypair
 
-  user_data                          = file("userdata-ec2.sh")
+  user_data                          = file("userdata.sh")
   tags = {
     Name="${var.mode}-${var.environment}"
   }
