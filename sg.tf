@@ -1,5 +1,5 @@
 resource "aws_security_group" "mw-sg" {
-  name        = "prometheus-sg"
+  name = "prometheus-sg"
 
   tags = {
     Name = "prometheus-sg"
@@ -9,10 +9,10 @@ resource "aws_security_group" "mw-sg" {
 ## Security group rules
 
 resource "aws_security_group_rule" "mw-asg-ingress-rule" {
-  count 			= length([ "22", "80" ])
+  count             = length(["22", "80"])
   type              = "ingress"
-  from_port         = element([ "22", "80" ], count.index)
-  to_port           = element([ "22", "80" ], count.index)
+  from_port         = element(["22", "80"], count.index)
+  to_port           = element(["22", "80"], count.index)
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.mw-sg.id
