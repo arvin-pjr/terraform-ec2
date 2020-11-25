@@ -4,7 +4,7 @@ variable "aws_region" {
 #variable "aws_access_key" {type = string}
 #variable "aws_secret_key" {}
 variable "app" {
-  default = "xhibit"
+  default = "xhibit-test"
 }
 #variable "node1_mode" {}
 #variable "node2_mode" {}
