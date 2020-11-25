@@ -13,9 +13,6 @@ jobs:
     defaults:
       run:
         shell: bash
-    env:
-      access_key: ${{ secrets.AWS_ACCESS_KEY }}
-      secret_key: ${{ secrets.AWS_SECRET_KEY }}
 
     steps:
     - name: Checkout
@@ -35,4 +32,6 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
-
+    env:
+      access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      secret_key: ${{ secrets.AWS_SECRET_KEY }}
